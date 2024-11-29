@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --text-color: #3c4043;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://lesalarie.ma/wp-content/uploads/2019/01/Nexteer.jpg') no-repeat center/cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 240px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        button {
+            width: 100%;
+            padding: 5px;
+            font-size: 0.9em;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #c0392b;
+        }
+
+        .message {
+            font-size: 0.8em;
+            color: red;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="validateUser()">Submit</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function validateUser() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const message = document.getElementById('message');
+
+            if (!username || !password) {
+                message.textContent = "Please enter both fields.";
+                return;
+            }
+
+            if (username === "Admin" && password === "Manukraft") {
+                message.textContent = "Login successful!";
+                message.className = "message success";
+            } else {
+                message.textContent = "Invalid credentials.";
+                message.className = "message";
+            }
+        }
+    </script>
+</body>
+</html>
